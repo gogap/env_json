@@ -109,7 +109,7 @@ func main() {
 
 if you want use your own `ENV` key, you could do it like this
 
-```
+```go
 envJson := NewEnvJson("YOUR_ENV_KEY_NAME", ".json")
 envJson.Unmarshal(data, &dbConf);
 ```
