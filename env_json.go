@@ -47,7 +47,7 @@ func (p *EnvJson) Unmarshal(data []byte, v interface{}) (err error) {
 
 	files := []string{}
 
-	if strConfigFiles == "" || len(files) {
+	if strConfigFiles == "" || len(files) == 0 {
 		return json.Unmarshal(data, v)
 	}
 
