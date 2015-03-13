@@ -42,9 +42,14 @@ func (p *EnvJson) MarshalIndent(v interface{}, prefix, indent string) ([]byte, e
 
 func (p *EnvJson) Unmarshal(data []byte, v interface{}) (err error) {
 	strConfigFiles := os.Getenv(p.envName)
+
 	configFiles := strings.Split(strConfigFiles, ";")
 
 	files := []string{}
+
+	if strConfigFiles == "" || len(files) {
+		return json.Unmarshal(data, v)
+	}
 
 	for _, confFile := range configFiles {
 		var fi os.FileInfo
