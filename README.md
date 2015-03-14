@@ -1,6 +1,8 @@
 ENV JSON
 ========
 
+**this package based on `github.com/gogap/env_strings`**
+
 Read Env from config and compile the values into json file.
 
 ### About ENV JSON
@@ -17,7 +19,7 @@ Sometimes we need config file as following:
 }
 ```
 
-but, when we management more and more server and serivce, and if we need change the password or ip, it was disaster.
+but, when we management more and more server and serivce, and if we need change the password or ip, it was a disaster.
 
 So, we just want use config like this.
 
@@ -33,18 +35,18 @@ So, we just want use config like this.
 
 We use golang's template to replace values into the config while we read the json file configs.
 
-first, we set the env config at `~/.bash_profile` or `~/.zshrc`, and the default key is `ENV_JSON_CONFIG` and the default file extention is `.env`, the value of `ENV_JSON_CONFIG` could be a file or folder,it joined by`;`, it will automatic load all `*.env` files.
+first, we set the env config at `~/.bash_profile` or `~/.zshrc`, and the default key is `ENV_JSON` and the default file extention is `.env`, the value of `ENV_JSON` could be a file or folder,it joined by`;`, it will automatic load all `*.env` files.
 
 **Env**
 
 ```bash
-export ENV_JSON_CONFIG='~/playgo/test.env;~/playgo/test2.env'
+export ENV_JSON='~/playgo/test.env;~/playgo/test2.env'
 ```
 
 or
 
 ```bash
-export ENV_JSON_CONFIG='~/playgo'
+export ENV_JSON='~/playgo'
 ```
 
 

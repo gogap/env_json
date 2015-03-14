@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	ENV_JSON_KEY = "ENV_JSON_CONFIG"
+	ENV_JSON_KEY = "ENV_JSON"
 	ENV_JSON_EXT = ".env"
 )
 
