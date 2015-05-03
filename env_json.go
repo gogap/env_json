@@ -11,8 +11,7 @@ const (
 )
 
 type EnvJson struct {
-	envName string
-	envExt  string
+	*env_strings.EnvStrings
 }
 
 func NewEnvJson(envName string, envExt string) *EnvJson {
@@ -21,8 +20,7 @@ func NewEnvJson(envName string, envExt string) *EnvJson {
 	}
 
 	return &EnvJson{
-		envName: envName,
-		envExt:  envExt,
+		EnvStrings: env_strings.NewEnvStrings(envName, envExt),
 	}
 }
 
@@ -35,10 +33,8 @@ func (p *EnvJson) MarshalIndent(v interface{}, prefix, indent string) ([]byte, e
 }
 
 func (p *EnvJson) Unmarshal(data []byte, v interface{}) (err error) {
-	envStrings := env_strings.NewEnvStrings(p.envName, p.envExt)
-
 	strData := ""
-	if strData, err = envStrings.Execute(string(data)); err != nil {
+	if strData, err = p.Execute(string(data)); err != nil {
 		return
 	}
 
